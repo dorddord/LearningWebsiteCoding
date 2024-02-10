@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin:0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            .column{
+                float: left;
+                width: 33.33%;
+                padding: 50px;
+                text-align: center;
+                font-size: 25px;
+                cursor: pointer;
+                color: white;
+            }
+
+            .containerTab{
+                padding: 20px;
+                color: white;
+            }
+
+            .row:after{
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .closebtn{
+                float: right;
+                color: white;
+                font-size: 30px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="text-align: center">
+            <h2>Buttons with Boxes</h2>
+            <p>Click on the buttons and click their x's:</p>
+        </div>
+
+        <!--Three columns-->
+        <div class="row">
+            <div class="column" onclick="openTab('b1');"
+            style="background:green;">
+            </div>
+            <div class="column" onclick="openTab('b2');"
+            style="background:blue;">
+            </div>
+            <div class="column" onclick="openTab('b3');"
+            style="background:red;">
+            </div>
+        </div>
+        <div id = "b1" class="containerTab" style="display:none;background:green;">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h2>Green</h2>
+            <p>Green is the color of nature. It symbolizes growth, harmony, freshness, and fertility. Green has strong emotional correspondence with safety. Dark green is also commonly associated with money.</p>
+        </div>
+        <div id = "b2" class="containerTab" style="display:none;background:blue;">
+            <span onclick="this.parentElement.style.display='none';" class="closebtn">&times;</span>
+            <h2>Blue</h2>
+            <p>Blue is the color of the sky and sea. It is often associated with depth and stability. It symbolizes trust, loyalty, wisdom, confidence, intelligence, faith, truth, and heaven.</p>
+        </div>
+        <div id = "b3" class="containerTab" style="display:none;background:red;">
+            <span onclick="this.parentElement.style.display='none';" class="closebtn">&times;</span>
+            <h2>Red</h2>
+            <p>Red is the color of fire and blood, so it is associated with energy, war, danger, strength, power, determination as well as passion, desire, and love.</p>
+        </div>
+
+        <script>
+            function openTab(tabName){
+                var i, x;
+                x = document.getElementsByClassName("containerTab");
+                for(i = 0; i < x.length; i++){
+                    x[i].style.display = "none";
+                }
+                document.getElementById(tabName).style.display = "block";
+            }
+        </script>
+    </body>
+</html>
